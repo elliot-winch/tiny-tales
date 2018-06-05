@@ -1,0 +1,35 @@
+
+<form action="" method="post">
+  <h4 class="alpha">What Does The Scene Look Like?</h4>
+  <br>
+  This is
+  <input type="text" class="form-control" name="name">
+
+  , which is
+  <select name="descriptor1">
+  {{#each descriptor }}
+  <option value="{{this}}">{{this}}</option>
+  {{/each}}
+  </select>
+
+  and
+  <select name="descriptor2">
+  {{#each descriptor }}
+  <option value="{{this}}">{{this}}</option>
+  {{/each}}
+  </select>
+
+  . Why would anyone choose to come here? In your case, it's
+  <select name="objective">
+  {{#each objective }}
+  <option value="{{this}}">{{this}}</option>
+  {{/each}}
+  </select>
+
+  </p>
+
+  	<input type="submit" value="Submit">
+</form>
+
+
+<button onclick="window.location.href='/'">Cancel</button>

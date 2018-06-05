@@ -1,0 +1,75 @@
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <!-- I love simple solutions -->
+  <script>
+  const userEmail = "{{ email }}";
+  </script>
+  <script src="../js/clientside_message.js"></script>
+
+
+
+  <!--- https://bootdey.com/snippets/view/chat-room#html --->
+  <link rel="stylesheet" href="../css/chatroom.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<br>
+
+<div class="container bootstrap snippet">
+    <div class="row">
+      <div class="col-md-4 bg-white">
+
+        <div class=" row border-top border-bottom padding-sm" style="height: 40px;">
+          Scene
+        </div>
+
+          <strong>Location:</strong><div id="location_name"></div>
+          <strong>Description:</strong><div id="location_description"></div>
+          <strong>Objective:</strong><div id="location_objective"></div>
+
+          <strong>Items Visible:</strong>
+          <ul id="location_inventory">
+          </ul>
+          <br>
+
+        <div class=" row border-bottom border-top padding-sm" style="height: 40px;">
+        	Character Sheet
+        </div>
+
+          <strong>Name:</strong> <div id="character_name"></div>
+          <strong>Race:</strong> <div id="character_race"></div>
+          <strong>Class:</strong> <div id="character_class"></div>
+          <strong>Attribute:</strong> <div id="character_attribute"></div>
+          <strong>Motive:</strong> <div id="character_motive"></div>
+          <strong>Actions:</strong>
+          <ul id="character_actions">
+            <li>Take</li>
+            <li>Drop</li>
+          </ul>
+          <strong>Inventory:</strong>
+          <ul id="character_inventory">
+          </ul>
+
+      </div>
+
+    	<div class="col-md-8 bg-white ">
+            <div class="scrollcontainer">
+                <div class="chat-container" id="messageParent">
+<!---
+                  <div class="message">
+                    <img class="avatar" width="50px" height="50px" src="Dungeon-Master.jpg">
+                    <strong class="name">Dungeon Master</strong>
+                    <small class="float-right text-muted"><i class="fa fa-clock-o"></i> Mage </small>
+                    <br><p class="text-content">Let's get started!</div>
+--->
+            </div>
+            <div class="chat-box bg-white">
+            	<div class="input-group">
+            		<input class="form-control border no-shadow no-rounded inputMessage" placeholder="Type your message here">
+            		<span class="input-group-btn">
+            			<button class="btn btn-success no-rounded submitButton" type="submit">Send</button>
+            		</span>
+            	</div><!-- /input-group -->
+            </div><!--- chat box --->
+		      </div><!--- col --->
+	     </div><!--- row --->
+     </div><!--- container --->

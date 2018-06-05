@@ -1,0 +1,54 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/scene-list.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<h2 style="width:100%;text-align:center;"><font size="12px">Your Scenes</font></h2><br>
+
+<ul class="article-list-vertical" style="list-style-type: none;">
+
+  {{#if myScenes}}
+  {{#each myScenes }}
+
+      <li>
+          <a href="scene/{{ _id }}"><img src="../img/castle.jpg"></a>
+          <div>
+              <h2><a href="scene/{{ _id }}">{{ info.name }}</a></h2>
+              <p>{{ info.description }}</p>
+              <a href="scene/{{ _id }}" class="read-more">Enter &rarr;</a>
+          </div>
+      </li>
+  {{/each}}
+  {{else}}
+  <p>You aren't in any scenes yet! Hit new scene or browse some public scenes below.</p>
+  {{/if}}
+
+
+</ul>
+
+<br><br><br>
+<h2 style="width:100%;text-align:center;"><font size="12px">Public Scenes</font></h2><br>
+
+<ul class="article-list-vertical" style="list-style-type: none;">
+
+  {{#if publicScenes}}
+  {{#each publicScenes }}
+
+      <li>
+          <a href="scene/{{ _id }}"><img src="../img/castle.jpg"></a>
+          <div>
+              <h2><a href="scene/{{ _id }}">{{ info.name }}</a></h2>
+              <p>{{ info.description }}</p>
+              <a href="scene/{{ _id }}" class="read-more">Enter &rarr;</a>
+          </div>
+      </li>
+  {{/each}}
+  {{else}}
+  <p>You're early! Why not start a new public scene?</p>
+  {{/if}}
+
+
+</ul>

@@ -1,0 +1,97 @@
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+const app = express();
+
+app.set('views', path.join(__dirname, 'views'));
+app.set("view engine", "hbs");
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+    secret: 'add session secret here!',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+//passport
+const passport = require('passport');
+
+require('./passport.js')(passport);
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()) {
+        return next();
+      }
+
+    // if they aren't redirect them to the home page
+    res.redirect('/login');
+}
+
+//Routes
+
+//Home page will change so that you dont need the isLoggedIn function here
+app.get('/', isLoggedIn, (req, res) => {
+  res.render('scene.hbs');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.post('/login', passport.authenticate('local-login', {
+    successRedirect : '/',
+    failureRedirect : '/login',
+}));
+
+
+app.get('/logout', isLoggedIn, function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
+
+app.get('/register', function(req, res) {
+  res.render('register')
+});
+
+app.post('/register', passport.authenticate('local-register', {
+    successRedirect : '/',
+    failureRedirect : '/register',
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7c18e5ba77e11b190c5461855def619febbc3e9f
+}));
+
+//SocketIO
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+io.on('connect', (socket) => {
+    console.log("A User Connected");
+
+    socket.on("sendMessage", (sceneID, messageData) => {
+
+      console.log("Handed sceneID: " + sceneID.trim());
+      io.emit("sendMessage", messageData);
+    });
+
+    socket.on('disconneted', () => {
+      console.log("A User Disconnected");
+    });
+});
+
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening');
+});
