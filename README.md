@@ -49,7 +49,7 @@ An Example Scene with Embedded Characters and Messages:
 ## [Link to Commented First Draft Schema](db.js) 
 
 
-## Wireframes and Sitemap [I'm not really a front end guy, nor am I an artist.](TinyTalesWireframe.jpg)
+## Wireframes and Sitemap
 
 /login - page for logging in to your account
 
