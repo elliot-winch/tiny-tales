@@ -5,6 +5,8 @@
 
 Inspired by Dungeons and Dragons and LucasArt's text adventures, Tiny Tales is a web app that brings adventurers together to roleplay a single scene. It's like at tiny MUD (Multi-User Dungeon). Players are randomly assigned characters, with different traits and personalities, and they act out the scene in the chatroom. They can perform basic actions, such as picking things up, casting spells and attacking creatures (or each other!). 
 
+Please note, Tiny Tales is currently not hosted.
+
 ## Data Model
 
 The application will store Scenes, Users, Characters and Messages
